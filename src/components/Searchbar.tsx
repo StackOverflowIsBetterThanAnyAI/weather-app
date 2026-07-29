@@ -24,7 +24,7 @@ const Searchbar: FC<SearchbarProps> = ({
     const [location, _setLocation] = contextLocation
 
     return (
-        <div className="flex flex-row p-2 gap-2 items-center m-auto">
+        <div className="flex p-2 gap-2 items-center m-auto">
             <Icon type="Flag" />
             <LocationInput handleKeyDown={handleKeyDownInput} />
             <button
