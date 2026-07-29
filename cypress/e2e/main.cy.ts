@@ -33,7 +33,7 @@ describe('Main', () => {
         cy.get('button').click()
         cy.get('[data-testid="main-content"]').should(
             'have.text',
-            'London,City of London, Greater London,United KingdomFriday2025-02-28 10:0010.2°Cfeels like9.3°CPartly cloudyHumidity 50%Wind Strength 7.6km/h'
+            'London,City of London, Greater London,United KingdomFriday2025-02-28 10:002025-02-28 10:0010.2°Cfeels like9.3°CPartly cloudyHumidity 50 %Wind Strength 7.6 km/h'
         )
 
         cy.get('input').clear()
@@ -41,7 +41,7 @@ describe('Main', () => {
         cy.get('input').type('{enter}')
         cy.get('[data-testid="main-content"]').should(
             'have.text',
-            'London,City of London, Greater London,United KingdomFriday2025-02-28 10:0010.2°Cfeels like9.3°CPartly cloudyHumidity 50%Wind Strength 7.6km/h'
+            'London,City of London, Greater London,United KingdomFriday2025-02-28 10:002025-02-28 10:0010.2°Cfeels like9.3°CPartly cloudyHumidity 50 %Wind Strength 7.6 km/h'
         )
     })
 
