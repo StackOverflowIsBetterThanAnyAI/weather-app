@@ -9,6 +9,7 @@ import TemperatureText from './TemperatureText'
 import MarginText from './MarginText'
 import { useScreenWidth } from '../hooks/useScreenWidth'
 import LoadingText from './LoadingText'
+import MarginTextScreenreader from './MarginTextScreenreader'
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -192,10 +193,13 @@ const Canvas = () => {
                     {errorText && <ErrorText />}
                     {weatherData && (
                         <div
-                            className="flex flex-col px-4 py-2 md:py-4"
+                            className="flex flex-col px-4 pb-2 md:pb-4"
                             data-testid="main-content"
                         >
-                            <div className="flex flex-row gap-1 flex-wrap justify-center text-center">
+                            <p
+                                className="flex gap-1 flex-wrap justify-center text-center"
+                                aria-label={`${weatherData.location.name}, ${weatherData.location.region}, ${weatherData.location.country}`}
+                            >
                                 <span className="text-sm min-[320px]:text-base lg:text-lg">
                                     {weatherData.location.name + ','}
                                 </span>
@@ -205,10 +209,13 @@ const Canvas = () => {
                                 <span className="text-sm min-[320px]:text-base lg:text-lg">
                                     {weatherData.location.country}
                                 </span>
-                            </div>
+                            </p>
                             {weekday && <MarginText content={weekday} />}
                             <MarginText
                                 content={weatherData.location.localtime}
+                            />
+                            <MarginTextScreenreader
+                                time={weatherData.location.localtime}
                             />
                             <div className="flex flex-col bg-zinc-300/90 rounded-md p-2 mx-2 my-4">
                                 <div className="grid grid-cols-3 gap-2 mt-2 place-items-center text-center">
@@ -220,7 +227,7 @@ const Canvas = () => {
                                             weatherData.current.condition.text
                                         }
                                     />
-                                    <span className="flex flex-row flex-wrap justify-center text-center items-center gap-x-2">
+                                    <span className="flex flex-wrap justify-center text-center items-center gap-x-2">
                                         <span className="text-sm min-[320px]:text-base lg:text-lg">
                                             feels like
                                         </span>
@@ -231,9 +238,12 @@ const Canvas = () => {
                                         />
                                     </span>
                                 </div>
-                                <div className="flex m-auto pb-2 text-lg lg:text-2xl font-bold break-all text-center">
+                                <p
+                                    className="flex m-auto pb-2 text-lg lg:text-2xl font-bold break-all text-center"
+                                    aria-label={`Current Weather: ${weatherData.current.condition.text}`}
+                                >
                                     {weatherData.current.condition.text}
-                                </div>
+                                </p>
                             </div>
                             <div className="grid grid-cols-2 place-items-center">
                                 <Icon type="Humidity" />

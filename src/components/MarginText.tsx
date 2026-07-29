@@ -5,7 +5,11 @@ type MarginTextProps = {
 }
 
 const MarginText: FC<MarginTextProps> = ({ content }) => {
-    return <div className="text-sm lg:text-base flex m-auto">{content}</div>
+    return (
+        <div className="text-sm lg:text-base flex m-auto" aria-hidden="true">
+            {content}
+        </div>
+    )
 }
 
 export default MarginText

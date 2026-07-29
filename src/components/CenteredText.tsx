@@ -8,10 +8,12 @@ type CenteredTextProps = {
 
 const CenteredText: FC<CenteredTextProps> = ({ content, text, unit }) => {
     return (
-        <div className="text-sm min-[320px]:text-base lg:text-lg text-center">
-            {text} {content}
-            {unit}
-        </div>
+        <p
+            className="text-sm min-[320px]:text-base lg:text-lg text-center"
+            aria-label={`${text} ${content} ${unit === 'km/h' ? 'kilometres per hour' : 'percent'}`}
+        >
+            {text} {content} <span aria-hidden="true">{unit}</span>
+        </p>
     )
 }
 

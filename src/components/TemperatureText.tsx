@@ -6,10 +6,13 @@ type TemperatureTextProps = {
 
 const TemperatureText: FC<TemperatureTextProps> = ({ content }) => {
     return (
-        <span className="text-lg lg:text-2xl font-bold">
+        <p
+            className="text-lg lg:text-2xl font-bold"
+            aria-label={`${content}° Celsius`}
+        >
             {content}
             <span className="font-mono">°</span>C
-        </span>
+        </p>
     )
 }
 
