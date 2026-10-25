@@ -19,7 +19,7 @@ jobs:
               with:
                   start: npm start
                   wait-on: "http://localhost:3000"
-                  browser: chrome
+                  browser: electron
               env:
                   REACT_APP_API_KEY: ${{ secrets.API_KEY }}
                   BROWSER: none
