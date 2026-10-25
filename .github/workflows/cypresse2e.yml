@@ -2,9 +2,9 @@ name: Cypress e2e Tests
 
 on:
     push:
-        branches: ['master']
+        branches: ["master"]
     pull_request:
-        branches: ['master']
+        branches: ["master"]
 
 jobs:
     cypress-run:
@@ -18,8 +18,10 @@ jobs:
               uses: cypress-io/github-action@v6
               with:
                   start: npm start
-                  wait-on: 'http://localhost:3000'
+                  wait-on: "http://localhost:3000"
                   browser: chrome
+              env:
+                  REACT_APP_API_KEY: ${{ secrets.API_KEY }}
 
             - name: Upload Cypress Artifacts
               if: failure()
