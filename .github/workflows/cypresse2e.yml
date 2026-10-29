@@ -18,7 +18,8 @@ jobs:
               uses: cypress-io/github-action@v6
               with:
                   start: npm start
-                  wait-on: "http://localhost:3000"
+                  wait-on: "http://127.0.0.1:3000"
+                  wait-on-timeout: 120
                   browser: electron
               env:
                   REACT_APP_API_KEY: ${{ secrets.API_KEY }}
