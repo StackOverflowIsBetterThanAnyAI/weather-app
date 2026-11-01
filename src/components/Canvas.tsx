@@ -11,7 +11,7 @@ import { useScreenWidth } from '../hooks/useScreenWidth'
 import LoadingText from './LoadingText'
 import MarginTextScreenreader from './MarginTextScreenreader'
 
-const API_KEY = process.env.REACT_APP_API_KEY
+const API_KEY = import.meta.env.REACT_APP_API_KEY
 
 const Canvas = () => {
     const contextLocation = useContext(ContextLocation)

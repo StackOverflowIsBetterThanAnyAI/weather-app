@@ -2,26 +2,21 @@
     "name": "weather-app",
     "version": "1.0.0",
     "private": true,
+    "type": "module",
     "prettier": "prettier-es5",
     "dependencies": {
         "@types/node": "^22.20.5",
-        "@types/react": "^18.3.27",
-        "@types/react-dom": "^18.3.7",
-        "dotenv": "^17.4.2",
+        "@types/react": "^19.3.0",
+        "@types/react-dom": "^19.3.0",
         "prettier-es5": "^0.0.4",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "react-scripts": "5.0.1",
-        "typescript": "^4.9.5"
+        "react": "^19.3.1",
+        "react-dom": "^19.3.1",
+        "typescript": "^7.0.2"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app"
-        ]
+        "start": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
     },
     "browserslist": {
         "production": [
@@ -36,18 +31,14 @@
         ]
     },
     "devDependencies": {
+        "@vitejs/plugin-react": "^6.1.2",
+        "autoprefixer": "^10.6.2",
         "cypress": "^16.2.1",
-        "tailwindcss": "^3.4.17"
-    },
-    "overrides": {
-        "nth-check": ">=2.0.1",
-        "postcss": ">=8.4.31",
-        "serialize-javascript": "^7.1.4",
-        "uuid": "^11.1.1"
+        "postcss": "^8.5.32",
+        "tailwindcss": "^3.4.19",
+        "vite": "^8.3.5"
     },
     "allowScripts": {
-        "cypress@16.2.1": true,
-        "core-js@3.38.0": true,
-        "core-js-pure@3.38.0": true
+        "cypress@16.2.1": true
     }
 }
